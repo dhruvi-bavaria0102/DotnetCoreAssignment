@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HRM.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HRM
 {
@@ -27,10 +29,10 @@ namespace HRM
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>().AddDefaultTokenProviders();
             services.AddTransient(typeof(IEmployeeRepository), typeof(EmployeeRepository));
-            services.AddScoped(typeof(IEmployeeManager), typeof(EmployeeManager));
+            services.AddTransient(typeof(IEmployeeManager), typeof(EmployeeManager));
 
         }
 

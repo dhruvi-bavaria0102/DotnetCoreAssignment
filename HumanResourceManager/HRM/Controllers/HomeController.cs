@@ -1,4 +1,5 @@
-﻿using HRM.Models;
+﻿using HRM.BAL.Manager;
+using HRM.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,9 +12,9 @@ namespace HRM.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<EmployeeManager> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<EmployeeManager> logger)
         {
             _logger = logger;
         }
