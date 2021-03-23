@@ -42,7 +42,14 @@ namespace HRM.Data.Repository
 
         public void UpdateEmployee(Employee employee)
         {
+            context.Entry(employee).State = EntityState.Modified;
             context.SaveChanges();
         }
+        public void Save()
+        {
+            context.SaveChanges();
+        }
+
+        
     }
 }

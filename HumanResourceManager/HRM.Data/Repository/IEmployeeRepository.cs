@@ -15,5 +15,7 @@ namespace HRM.Data.Repository
         Employee GetEmployee(long id);
         void DeleteEmployee(long id);
         void UpdateEmployee(Employee employee);
+        void Save();
+       
     }
 }

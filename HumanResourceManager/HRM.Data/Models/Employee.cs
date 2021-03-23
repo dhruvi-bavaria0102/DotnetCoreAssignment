@@ -11,7 +11,7 @@ namespace HRM.Data.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Department { get; set; }
-        public string Salary { get; set; }
+        public decimal Salary { get; set; }
         public bool IsManager { get; set; }
         public string Manager { get; set; }
         public string Phone { get; set; }
