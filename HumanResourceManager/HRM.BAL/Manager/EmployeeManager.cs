@@ -39,5 +39,10 @@ namespace HRM.BAL.Manager
         {
             _employeeRepository.UpdateEmployee(employee);
         }
+
+        public void Save()
+        {
+            _employeeRepository.Save();
+        }
     }
 }

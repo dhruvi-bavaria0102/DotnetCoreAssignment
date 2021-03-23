@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HRM.Data.Models
 {
-    public class ApplicationDBContext : IdentityDbContext
+    public class ApplicationDBContext : IdentityDbContext<AppUser>
     {
         private readonly DbContextOptions _options;
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
@@ -21,6 +21,7 @@ namespace HRM.Data.Models
         }
 
         public DbSet<Employee> Employee { get; set; }
+        //public DbSet<LoginUser> LoginUser { get; set; }
         public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDBContext>
         {
             public ApplicationDBContext CreateDbContext(string[] args)

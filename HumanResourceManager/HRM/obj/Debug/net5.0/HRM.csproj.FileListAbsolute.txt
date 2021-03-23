@@ -162,3 +162,7 @@ D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Em
 D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Employee\Details.cshtml.g.cs
 D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Employee\Create.cshtml.g.cs
 D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs
+D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Employee\Delete.cshtml.g.cs
+D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
+D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
+D:\HumanResourceManager\HumanResourceManager\HRM\obj\Debug\net5.0\Razor\Views\Shared\_Layout1.cshtml.g.cs

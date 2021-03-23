@@ -14,6 +14,6 @@ namespace HRM.BAL.Manager
         Employee GetEmployee(long id);
         void DeleteEmployee(long id);
         void UpdateEmployee(Employee employee);
-       
+        void Save();
     }
 }

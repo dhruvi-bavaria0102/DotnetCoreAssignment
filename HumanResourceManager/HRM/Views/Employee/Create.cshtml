@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 <h1>Create</h1>
@@ -20,9 +20,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Department" class="control-label"></label>
-                <input asp-for="Department" class="form-control" />
+                <select asp-for="Department" name="Department" class="form-control">
+                    <option value="IT">IT</option>
+                    <option value="Management">Management</option>
+                    <option value="Network">Network</option>
+                    <option value="HR">HR</option>
+                </select>
                 <span asp-validation-for="Department" class="text-danger"></span>
             </div>
+         
             <div class="form-group">
                 <label asp-for="Salary" class="control-label"></label>
                 <input asp-for="Salary" class="form-control" />
@@ -33,11 +39,18 @@
                     <input class="form-check-input" asp-for="IsManager" /> @Html.DisplayNameFor(model => model.IsManager)
                 </label>
             </div>
+
             <div class="form-group">
                 <label asp-for="Manager" class="control-label"></label>
-                <input asp-for="Manager" class="form-control" />
+                <select asp-for="Manager" name="Manager" class="form-control">
+                    <option value="0">Vyomesh Shah</option>
+                    <option value="1">Dimple Mehta</option>
+                    <option value="2">Anurag Patel</option>
+                    <option value="3">Atul Patel</option>
+                </select>
                 <span asp-validation-for="Manager" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
                 <input asp-for="Phone" class="form-control" />

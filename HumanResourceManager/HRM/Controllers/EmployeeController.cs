@@ -1,5 +1,7 @@
 ﻿using HRM.BAL.Manager;
 using HRM.Data.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,9 @@ namespace HRM.Controllers
         {
             _employeeManager = employeeManager;
         }
+
+        [Authorize]
+        [ResponseCache(Duration = (int)0.5)]
         public IActionResult Index()
         {
             var employee = _employeeManager.GetAllEmployees();
@@ -56,7 +61,7 @@ namespace HRM.Controllers
             if (ModelState.IsValid)
             {
                 _employeeManager.UpdateEmployee(employee);
-                _employeeManager.SaveEmployee(employee);
+                //_employeeManager.SaveEmployee(employee);
                 return RedirectToAction("Index", "Employee");
 
             }
@@ -64,6 +69,20 @@ namespace HRM.Controllers
             {
                 return View(employee);
             }
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var employee = _employeeManager.GetEmployee(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id,IFormCollection form)
+        {
+            _employeeManager.DeleteEmployee(id);
+           
+            return RedirectToAction("Index", "Employee");
         }
     }
 }
