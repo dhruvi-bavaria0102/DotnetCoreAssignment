@@ -15,6 +15,8 @@ using HRM.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace HRM
 {
@@ -30,11 +32,8 @@ namespace HRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddResponseCaching(options =>
-            {
-                options.UseCaseSensitivePaths = true;
-                options.MaximumBodySize = 1024;
-            });
+            services.AddResponseCaching();
+            services.AddMvc();
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<AppUser, IdentityRole>(config =>
@@ -61,6 +60,9 @@ namespace HRM
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //var path = Directory.GetCurrentDirectory();
+            //LoggerFactory.AddFile($"{path}\\Logs\\Log.txt");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -75,23 +77,15 @@ namespace HRM
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseResponseCaching();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseResponseCaching();
-
-            //app.Use(async (context, next) =>
-            //{
-            //    context.Response.GetTypedHeaders().CacheControl =
-            //        new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
-            //        {
-            //            Public = true,
-            //            MaxAge = TimeSpan.FromSeconds(10)
-            //        };
-            //    context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] =
-            //        new string[] { "Dhruvi" };
-
-            //    await next();
-            //});
+            app.UseResponseTimeMiddleware();
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Header-Name", "Dhruvi Bavaria");
+                await next();
+            });
 
             app.UseEndpoints(endpoints =>
             {
