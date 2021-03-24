@@ -20,7 +20,8 @@ namespace HRM.Controllers
         }
 
         [Authorize]
-        [ResponseCache(Duration = (int)0.5)]
+        [ResponseCache(Duration = 1)]
+      
         public IActionResult Index()
         {
             var employee = _employeeManager.GetAllEmployees();
