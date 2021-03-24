@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,9 +16,12 @@ namespace HRM
         private const string RESPONSE_HEADER_RESPONSE_TIME = "X-Response-Time-ms";
         // Handle to the next Middleware in the pipeline  
         private readonly RequestDelegate _next;
-        public ResponseTimeMiddleware(RequestDelegate next)
+        private readonly ILogger<ResponseTimeMiddleware> _logger;
+
+        public ResponseTimeMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
         {
             _next = next;
+            _logger = loggerFactory.CreateLogger<ResponseTimeMiddleware>();
         }
         public Task InvokeAsync(HttpContext context)
         {
@@ -29,7 +33,9 @@ namespace HRM
                 watch.Stop();
                 var responseTimeForCompleteRequest = watch.ElapsedMilliseconds;
                 // Add the Response time information in the Response headers.   
-                context.Response.Headers[RESPONSE_HEADER_RESPONSE_TIME] = responseTimeForCompleteRequest.ToString();
+                var stringLog = $"Response time for the action {context.Request.Path} took {responseTimeForCompleteRequest} ms";
+
+                _logger.LogInformation(stringLog);
                 return Task.CompletedTask;
             });
             // Call the next delegate/middleware in the pipeline   

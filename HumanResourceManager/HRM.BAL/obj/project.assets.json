@@ -6035,23 +6035,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dhruvi.bavaria\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Dhruvi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\HumanResourceManager\\HumanResourceManager\\HRM.BAL\\HRM.BAL.csproj",
+      "projectUniqueName": "D:\\Placement\\gateway\\HRM\\DotnetCoreAssignment\\HumanResourceManager\\HRM.BAL\\HRM.BAL.csproj",
       "projectName": "HRM.BAL",
-      "projectPath": "D:\\HumanResourceManager\\HumanResourceManager\\HRM.BAL\\HRM.BAL.csproj",
-      "packagesPath": "C:\\Users\\dhruvi.bavaria\\.nuget\\packages\\",
-      "outputPath": "D:\\HumanResourceManager\\HumanResourceManager\\HRM.BAL\\obj\\",
+      "projectPath": "D:\\Placement\\gateway\\HRM\\DotnetCoreAssignment\\HumanResourceManager\\HRM.BAL\\HRM.BAL.csproj",
+      "packagesPath": "C:\\Users\\Dhruvi\\.nuget\\packages\\",
+      "outputPath": "D:\\Placement\\gateway\\HRM\\DotnetCoreAssignment\\HumanResourceManager\\HRM.BAL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\dhruvi.bavaria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dhruvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6065,8 +6061,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\HumanResourceManager\\HumanResourceManager\\HRM.Data\\HRM.Data.csproj": {
-              "projectPath": "D:\\HumanResourceManager\\HumanResourceManager\\HRM.Data\\HRM.Data.csproj"
+            "D:\\Placement\\gateway\\HRM\\DotnetCoreAssignment\\HumanResourceManager\\HRM.Data\\HRM.Data.csproj": {
+              "projectPath": "D:\\Placement\\gateway\\HRM\\DotnetCoreAssignment\\HumanResourceManager\\HRM.Data\\HRM.Data.csproj"
             }
           }
         }
@@ -6090,12 +6086,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
